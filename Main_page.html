@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href = "Main_Css.css" >
+</head>
+<body>
+    <div class="container">
+
+        <!-- 상단 헤더 -->
+        <header class="top-header">
+            <div class="logo">웹 이름</div>
+            <div class="study-timer">하루 공부 타이머</div>
+            <div class="profile">개인 정보</div>
+        </header>
+        <nav class="link-nav">
+        <a href="#calendar"> 필기 </a>
+        <a href="#todo">  메모 </a>
+        <a href="#brain"> 브레인스토밍</a>
+    </nav>
+
+        <!-- 메인 3분할 레이아웃 -->
+        <main class="dashboard">
+            <!-- 1번 : 달력 -->
+            <section class="panel calendar-panel">
+                <h2>달력</h2>
+                <div id="calendar"></div>
+            </section>
+
+            <!-- 2번 : 공부량 데이터 (placeholder) -->
+            <section class="panel stats-panel">
+                <h2>공부량 데이터</h2>
+                <div class="placeholder">
+                    아직 데이터 없음
+                </div>
+            </section>
+
+            <!-- 3번 : 할 일 리스트 -->
+            <section class="panel todo-panel">
+                <h2>할 일 리스트</h2>
+
+                <ul id="todo-list" class="todo-list">
+                    <!-- 할 일 항목들이 여기에 들어감 -->
+                </ul>
+
+                <div class="todo-input-row">
+                    <input id="todo-input" placeholder="할 일을 입력하세요">
+                    <button id="add-todo">추가</button>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <script src="Main_Calender.js"></script>
+</body>
+</html>
