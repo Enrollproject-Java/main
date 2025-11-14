@@ -38,19 +38,38 @@ grid.className = "calendar-grid";
 
 for (let i = 0; i < firstDay; i++) {
     const empty = document.createElement("div");
+    empty.className = "calendar-cell empty";
     grid.appendChild(empty);
 }
 
 
 for (let date = 1; date <= lastDate; date++) {
     const cell = document.createElement("div");
+    cell.className = "calendar-cell";
     cell.textContent = date;
 
     if (year === todayYear && month === todayMonth && date === todayDate) {
         cell.classList.add("today");
     }
+    //클릭 이벤트 추가
+    cell.addEventListener("click", (e) => {
+        selectedDate = `${year}-${String(month).padStart(2,'0')}-${String(date).padStart(2,'0')}`;
+        console.log("선택된 날짜:", selectedDate, " (엘리먼트:)", e.currentTarget);
+
+        // UI 선택 강조
+        document.querySelectorAll(".calendar-cell").forEach(c => c.classList.remove("selected"));
+        cell.classList.add("selected");
+
+        // 할 일 불러오기 (에러가 있어도 실행 중단 안되게 try/catch)
+        try {
+            loadTodos(selectedDate);
+        } catch (err) {
+            console.error("loadTodos 호출 중 에러:", err);
+        }
+    });
 
     grid.appendChild(cell);
 }
 
 calendar.appendChild(grid);
+
